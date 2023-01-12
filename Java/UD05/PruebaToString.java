@@ -1,7 +1,5 @@
 package UD05;
 
-import javax.sound.sampled.SourceDataLine;
-
 public class PruebaToString {
     public static void main(String[] args) {
         long numLong=1;

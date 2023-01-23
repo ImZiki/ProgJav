@@ -1,4 +1,4 @@
-package UD06;
+package UD06.Retos;
 
 import java.util.Arrays;
 import java.util.Collections;

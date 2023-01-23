@@ -65,7 +65,7 @@ public class Ahorcado {
                     palabraProgreso = pSecreta;
                 }
             }
-                if (pSecreta.equals(pAdivinar))
+                if (pSecreta.equals(palabraProgreso))
                     System.out.println("¡Ganaste! Lo adivinaste en "+intentos+" intentos");
 
 

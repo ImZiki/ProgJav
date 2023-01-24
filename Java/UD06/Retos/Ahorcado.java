@@ -28,6 +28,13 @@ public class Ahorcado {
 
 
     //mi codigo
+    /*
+    Para sustituir el for de abajo
+     * char chrSustituir = '-';
+     * char[] charArray = new char[pSecreta.length()];
+     * Arrays,fill(charArray, chrSustituir);
+     * String palabraProgreso = new String(charArray);
+     */
         String palabraProgreso = "";
         for (int i = 0; i < pSecreta.length(); i++) {
             palabraProgreso += "-";

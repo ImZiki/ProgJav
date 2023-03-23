@@ -1,4 +1,4 @@
-package actTeoria.act9;
+package EjerciciosHerencia;
 
 abstract public class Shape {
     protected String color;
@@ -31,9 +31,7 @@ abstract public class Shape {
 
     abstract public double getArea();
     abstract public double getPerimeter();
-    abstract public double getRadius();
-    abstract public double getWidth();
-    abstract public double getSide();
+
 
     @Override
     public String toString() {

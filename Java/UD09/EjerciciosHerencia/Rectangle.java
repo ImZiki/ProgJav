@@ -1,36 +1,36 @@
-package actTeoria.act9;
+package EjerciciosHerencia;
 
-public class Rectangle extends Shape {
-    protected double heigth;
+abstract public class Rectangle extends Shape {
+    protected double length;
     protected double width;
 
     public Rectangle(){
         this(1.0, 1.0);
     }
-    public Rectangle(double heigth, double width){
+    public Rectangle(double length, double width){
         super();
-        this.heigth = heigth;
+        this.length = length;
         this.width = width;
     }
 
-    public Rectangle(double width, double heigth, String color, boolean filled){
+    public Rectangle(double width, double length, String color, boolean filled){
         super(color, filled);
         this.width = width;
-        this.heigth = heigth;
+        this.length = length;
     }
     
     /** 
      * @return double
      */
-    public double getHeigth() {
-        return heigth;
+    public double getlength() {
+        return length;
     }
     
     /** 
-     * @param heigth
+     * @param length
      */
-    public void setHeigth(double heigth) {
-        this.heigth = heigth;
+    public void setlength(double length) {
+        this.length = length;
     }
     
     /** 
@@ -53,7 +53,7 @@ public class Rectangle extends Shape {
      */
     @Override
      public double getArea(){
-        double area = this.heigth*this.width;
+        double area = this.length*this.width;
         return area;
     }
     
@@ -62,7 +62,7 @@ public class Rectangle extends Shape {
      */
     @Override
     public double getPerimeter(){
-        double perimeter = (this.heigth*2) + (this.width*2);
+        double perimeter = (this.length*2) + (this.width*2);
         return perimeter;
     }
     
@@ -71,6 +71,6 @@ public class Rectangle extends Shape {
      */
     @Override
     public String toString() {
-        return "Rectangle [heigth=" + heigth + ", width=" + width + super.toString() + "]";
+        return "Rectangle [length=" + length + ", width=" + width + super.toString() + "]";
     }
 }

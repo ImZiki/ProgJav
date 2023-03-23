@@ -1,4 +1,4 @@
-package UD09.actTeoria.act4;
+package actTeoria.act4;
 
 public class Person {
     private String name;

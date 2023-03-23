@@ -1,4 +1,4 @@
-package UD09.actTeoria.act8;
+package actTeoria.act8;
 
 public class Point {
     private float x = 0.0f;

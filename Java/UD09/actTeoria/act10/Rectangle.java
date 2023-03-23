@@ -1,6 +1,6 @@
-package actTeoria.act9;
+package actTeoria.act10;
 
-public class Rectangle extends Shape {
+abstract public class Rectangle extends Shape {
     protected double heigth;
     protected double width;
 
@@ -74,3 +74,4 @@ public class Rectangle extends Shape {
         return "Rectangle [heigth=" + heigth + ", width=" + width + super.toString() + "]";
     }
 }
+

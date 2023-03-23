@@ -1,4 +1,4 @@
-package actTeoria.act9;
+package actTeoria.act10;
 
 public class Square extends Rectangle{
     

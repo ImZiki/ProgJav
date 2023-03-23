@@ -1,4 +1,4 @@
-package actTeoria.act9;
+package EjerciciosHerencia;
 
 public class Circle extends Shape {
     protected double radius;

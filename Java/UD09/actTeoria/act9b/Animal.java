@@ -1,9 +1,11 @@
 package UD09.actTeoria.act9b;
 
-abstract public class Animal {
+public class Animal {
     private String name;
-    abstract public String Animal(String name);
-
+    
+    public Animal(String name){
+        this.name = name;
+    }
     @Override
     public String toString() {
         

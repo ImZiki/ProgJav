@@ -1,4 +1,4 @@
-package actTeoria.act9;
+package EjerciciosHerencia;
 
 public class Square extends Rectangle{
     
@@ -15,8 +15,8 @@ public class Square extends Rectangle{
     }
     
     @Override
-    public void setHeigth(double heigth){
-        setSide(heigth);
+    public void setlength(double length){
+        setSide(length);
     }
     @Override
     public void setWidth(double width){
@@ -24,10 +24,10 @@ public class Square extends Rectangle{
     }
 
     public double getSide(double side){
-        return getHeigth();
+        return getlength();
     }
     public void setSide(double side){
-        super.setHeigth(side);
+        super.setlength(side);
         super.setWidth(side);
     }
 }

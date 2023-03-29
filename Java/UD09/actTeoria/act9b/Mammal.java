@@ -1,14 +1,11 @@
-package UD09.actTeoria.act9b;
+package actTeoria.act9b;
 
 abstract public class Mammal extends Animal {
+    String name;
     public String Animal(String name){
-        
+        return name;
     }
-    
-    public String Mammal(String name){
-        this. = name;
 
-    }
     @Override
     public String toString() {
         

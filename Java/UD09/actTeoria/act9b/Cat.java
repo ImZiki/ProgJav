@@ -1,4 +1,4 @@
-package UD09.actTeoria.act9b;
+package actTeoria.act9b;
 
 public class Cat {
     

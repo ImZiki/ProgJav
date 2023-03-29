@@ -14,6 +14,7 @@ public class Square extends Rectangle{
         super(side, side, color, filled);
     }
     
+    
     @Override
     public void setlength(double length){
         setSide(length);

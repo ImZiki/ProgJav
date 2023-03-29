@@ -1,6 +1,6 @@
 package EjerciciosHerencia;
 
-abstract public class Polygon extends Shape {
+public abstract class Polygon extends Shape {
     protected double apothem;
 
     public Polygon(double apothem){
@@ -22,7 +22,7 @@ abstract public class Polygon extends Shape {
     }
 
     @Override
-    abstract public double getArea();
+    public abstract  double getArea();
     @Override 
-    abstract public double getPerimeter();
+    public abstract  double getPerimeter();
 }

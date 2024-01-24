@@ -35,12 +35,9 @@ public class Factura {
     }
 
     @Override
-    public String toString() {
-        return "Factura{" +
-                "numero=" + numero +
-                ", Descripción='" + descripcion + '\'' +
-                ", Cantidad=" + cantidad +
-                ", Precio=" + precio +
-                '}';
+public String toString() {
+    return String.format("Factura: Número:%02d, Descripción:'%s', Cantidad:%02d, Precio:%.2f", numero, descripcion, cantidad, precio);
+}
+
     }
 }

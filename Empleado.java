@@ -43,12 +43,10 @@ public class Empleado {
         return salario;
     }
 
-    @Override
-    public String toString() {
-        return "Empleado{" +
-                "id=" + id +
-                ", Nombre='" + nombre + " " + apellido +
-                ", salario=" + salario +
-                '}';
+   @Override
+   public String toString() {
+    return String.format("id: %02d, Nombre: %s, Salario: %d", id, nombre, apellido, salario);
+}
+
     }
 }

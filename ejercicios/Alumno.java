@@ -66,5 +66,21 @@ public class Alumno {
         return "Alumno [dni=" + dni + ", edad=" + edad + ", trimestre1=" + trimestre1 + ", trimestre2=" + trimestre2
                 + ", trimestre3=" + trimestre3 + "]";
     }
-    
+    public static void main(String[] args) {
+        // Crear primer alumno con dni y luego actualizar la edad con el setter
+        Alumno alumno1 = new Alumno("12345678A");
+        System.out.println("Información del primer alumno antes de actualizar la edad:");
+        alumno1.informeAlumno();
+        
+        alumno1.setEdad(18); // Actualizar la edad del primer alumno
+        
+        System.out.println("\nInformación del primer alumno después de actualizar la edad:");
+        alumno1.informeAlumno();
+        
+        // Crear segundo alumno con dni y edad
+        Alumno alumno2 = new Alumno("98765432B", 16);
+        System.out.println("\nInformación del segundo alumno:");
+        alumno2.informeAlumno();
+    }
+}
 }

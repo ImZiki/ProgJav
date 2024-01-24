@@ -44,4 +44,30 @@ public class Moto {
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
+
+    public static void main(String[] args) {
+        // Crear primera motocicleta con constructor por defecto y luego introducir valores mediante set
+        Moto moto1 = new Moto(null, 0, 0);
+        moto1.setMatricula("1234ABC");
+        moto1.setPotencia(150);
+        moto1.setVelocidad(120);
+
+        // Crear segunda motocicleta con constructor con parámetros
+        Moto moto2 = new Moto("5678XYZ", 200, 180);
+
+        // Mostrar los datos de las motocicletas utilizando toString(), get y mostrarMatricula()
+        System.out.println("Datos de la primera motocicleta:");
+        System.out.println("Matrícula: " + moto1.getMatricula());
+        System.out.println("Potencia: " + moto1.getPotencia());
+        System.out.println("Velocidad: " + moto1.getVelocidad());
+        System.out.println("Mostrar Matrícula:");
+        moto1.mostrarMatricula();
+
+        System.out.println("\nDatos de la segunda motocicleta:");
+        System.out.println("Matrícula: " + moto2.getMatricula());
+        System.out.println("Potencia: " + moto2.getPotencia());
+        System.out.println("Velocidad: " + moto2.getVelocidad());
+        System.out.println("Mostrar Matrícula:");
+        moto2.mostrarMatricula();
+    }
 }

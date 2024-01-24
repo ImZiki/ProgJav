@@ -27,10 +27,9 @@ public class Rectángulo {
     }
 
     @Override
-    public String toString() {
-        return "Rectángulo{" +
-                "Longitud=" + longitud +
-                ", Ancho=" + ancho +
-                '}';
+public String toString() {
+    return String.format("Rectángulo: Longitud:%.2f, Ancho:%.2f", longitud, ancho);
+}
+
     }
 }

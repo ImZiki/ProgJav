@@ -21,14 +21,14 @@ public class Carta {
     public int getNumero() {
         return numero;
     }
-    public void setPalo(char palo) {
+    private void setPalo(char palo) {
         this.palo = palo;
     }
 
-    public void setNumero(int numero) {
+    private void setNumero(int numero) {
         this.numero = numero;
      }
-    public void pedirNumero(){
+    protected void pedirNumero(){
         Scanner sc = new Scanner(System.in);
         while(true){
             System.out.println("Introduce el número de la carta (entre 1 y 13): ");
@@ -39,7 +39,7 @@ public class Carta {
             }
         }
     }
-    public void pedirPalo(){
+    protected void pedirPalo(){
         Scanner sc = new Scanner(System.in);
         while(true){
             System.out.println("Introduce el palo de la carta (t, r, p, c): ");

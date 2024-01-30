@@ -18,7 +18,7 @@ public class Mano {
 
     public void mostrarCarta(int numero) {
     if (numero >= 0 && numero < TAMANIO) {
-        switch (indice) {
+        switch (numero) {
             case 0:
                 System.out.println("Carta 1: " + carta1);
                 break;
@@ -34,9 +34,9 @@ public class Mano {
     }
 }
 
-public void setCarta(int indice) {
-    if (indice >= 0 && indice < TAMANIO) {
-        switch (indice) {
+public void setCarta(int numero) {
+    if (numero >= 0 && numero < TAMANIO) {
+        switch (numero) {
             case 0:
                 carta1.pedirCarta();
                 break;
@@ -83,37 +83,37 @@ public void mostrarMano() {
 }
 
 private int comparar(Mano mano) {
-    int sumaThis = 0;
+    int suma = 0;
     int sumaMano = 0;
-    int cartasRojasThis = 0;
-    int cartasRojasMano = 0;
+    int cartasRojas = 0;
+    int cartasRojasOtra = 0;
 
-    sumaThis += carta1.getNumero();
-    sumaThis += carta2.getNumero();
-    sumaThis += carta3.getNumero();
+    suma += carta1.getNumero();
+    suma += carta2.getNumero();
+    suma += carta3.getNumero();
 
-    sumaMano += mano.carta1.getNumero();
-    sumaMano += mano.carta2.getNumero();
-    sumaMano += mano.carta3.getNumero();
+    sumaOtraMano += mano.carta1.getNumero();
+    sumaOtraMano += mano.carta2.getNumero();
+    sumaOtraMano += mano.carta3.getNumero();
 
     if (carta1.getPalo() == 'r' || carta1.getPalo() == 't') {
-        cartasRojasThis++;
+        cartasRojas++;
     }
     if (carta2.getPalo() == 'r' || carta2.getPalo() == 't') {
-        cartasRojasThis++;
+        cartasRojas++;
     }
     if (carta3.getPalo() == 'r' || carta3.getPalo() == 't') {
-        cartasRojasThis++;
+        cartasRojass++;
     }
 
     if (mano.carta1.getPalo() == 'r' || mano.carta1.getPalo() == 't') {
-        cartasRojasMano++;
+        cartasRojasOtraMano++;
     }
     if (mano.carta2.getPalo() == 'r' || mano.carta2.getPalo() == 't') {
-        cartasRojasMano++;
+        cartasRojasOtraMano++;
     }
     if (mano.carta3.getPalo() == 'r' || mano.carta3.getPalo() == 't') {
-        cartasRojasMano++;
+        cartasRojasOtraMano++;
     }
 
     if (sumaThis > sumaMano) {
@@ -121,9 +121,9 @@ private int comparar(Mano mano) {
     } else if (sumaThis < sumaMano) {
         return 1;
     } else {
-        if (cartasRojasThis > cartasRojasMano) {
+        if (cartasRojas > cartasRojasOtraMano) {
             return -1;
-        } else if (cartasRojasThis < cartasRojasMano) {
+        } else if (cartasRojas < cartasRojasOtraMano) {
             return 1;
         } else {
             return 0;

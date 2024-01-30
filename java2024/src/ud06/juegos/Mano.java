@@ -16,8 +16,8 @@ public class Mano {
         return TAMANIO;
     }
 
-    public void mostrarCarta(int indice) {
-    if (indice >= 0 && indice < TAMANIO) {
+    public void mostrarCarta(int numero) {
+    if (numero >= 0 && numero < TAMANIO) {
         switch (indice) {
             case 0:
                 System.out.println("Carta 1: " + carta1);
@@ -30,7 +30,7 @@ public class Mano {
                 break;
         }
     } else {
-        System.out.println("Índice de carta inválido");
+        System.out.println("Número de carta inválido");
     }
 }
 

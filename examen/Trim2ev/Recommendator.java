@@ -1,5 +1,9 @@
 package ud08.examen.Trim2ev;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Recommendator {
@@ -15,13 +19,12 @@ public class Recommendator {
 	 */
     
 	 public static Usuario masAmigosMujer(Set<Usuario> usuarios){
-		Usuario mayor = null;
-		for (Usuario usuario : usuarios) {
-			mayor = usuario;
-			if(usuario.amigosDeGenero('m').size() > mayor.amigosDeGenero('m').size())
-				mayor = usuario;
-		}
-		return mayor;
+		Usuario usuario = null;
+		List<Usuario> masAmigos = new ArrayList<>(usuarios);
+		Collections.sort(masAmigos, new AmigosComparator());
+		if (!masAmigos.isEmpty())
+			usuario = masAmigos.get(0);
+		return usuario;
 	 }
      
 	/**
@@ -34,7 +37,15 @@ public class Recommendator {
 	 * La puntuación de amistad de un usuario consigo mismo es 0
 	 */
 
-	 //<Inserta tu código aquí>
+	 public static int puntuacionAmistad(Usuario u1, Usuario u2){
+		int puntuacion = 0;
+		if(u1 != null && u2 != null && u1 != u2){
+			Set<Usuario> comun = new HashSet<>(u1.getAmigos());
+			comun.retainAll(u2.getAmigos());
+			puntuacion = comun.size();
+		}
+		return puntuacion;
+	 }
 
 
 	/**
@@ -48,5 +59,18 @@ public class Recommendator {
 	 * ni puede ser el usuario al cual se le está recomendando un amigo.
 	 */
 
-	 //<Inserta tu código aquí>
+	 public static Usuario recomendarMasAmigosComun(Usuario u, Set<Usuario> usuarios){
+		int max = -1;
+		Usuario posibleAmigo = null;
+		for (Usuario a : usuarios) {
+			if (!a.equals(u)&& !u.esAmigo(a)){
+				int p = puntuacionAmistad(u, a);
+				if(p>max){
+					max = p;
+					posibleAmigo = a;
+				}
+			}
+		}
+		return posibleAmigo;
+	 }
 }

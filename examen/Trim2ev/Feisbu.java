@@ -4,8 +4,10 @@ import java.time.LocalDate;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class Feisbu {
 
@@ -32,12 +34,17 @@ public class Feisbu {
             String nombreUsuario = datos[0];
             String nombreCompleto = datos[1]
             char genero = datos[longitud - 4].charAt(0);
-            LocalDate fechaRegistro = getFecha(datos[longitud-3], datos[longitud-2], datos[longitud-1]);
-            
+            String anio = datos[longitud-3];
+            String mes = datos[longitud-2];
+            String dia = datos[longitud-1];            
+            LocalDate fechaRegistro = getFecha(anio, mes, dia);
             Usuario usuario = new Usuario(nombreUsuario, nombreCompleto, genero, fechaRegistro);
 
-            for (int i = 2; i < datos.length -4; i++) {
-                Grupo grupo = new Grupo(datos[i]);
+            for (int i = 2; i < longitud -4; i++) {
+                String nombreGrupo = datos[i];
+                Grupo grupo = buscaGrupo(nombreGrupo);
+                if (grupo == null)
+                    grupo = new Grupo(nombreGrupo);
                 agregaGrupo(grupo);
                 usuario.agregarGrupo(grupo);
             } agregaUsuario(usuario);
@@ -58,11 +65,10 @@ public class Feisbu {
             String[] datos = sc.nextLine().split(":");
             if(datos[0].equals("FIN")) break;
             Usuario usuario = buscaUsuario(datos[0]);
-            for (int i = 1; i < datos.length; i++) {
-                Usuario amigo = buscaUsuario(datos[i]);
-                usuario.agregarAmigo(amigo);
+            String[] amigos = datos[1].split(";");
+            for (String amigo : amigos) {
+                usuario.agregarAmigo(buscaUsuario(amigo));
             }
-            
         }
     }
     
@@ -113,8 +119,7 @@ public class Feisbu {
      * Devuelve todos los usuarios de la red social
      */
     public Set<Usuario> getUsuarios(){
-       Set<Usuario> setUsuarios = new TreeSet<>();
-       usuarios.forEach((clave, valor) -> setUsuarios.add(valor));
+       Set<Usuario> setUsuarios = new HashSet<>(usuarios.values());
        return setUsuarios;
     }
     
@@ -122,8 +127,7 @@ public class Feisbu {
      * Devuelve todos los grupos de la red social
      */
     public Set<Grupo> getGrupos(){
-        Set<Grupo> setGrupos = new TreeSet<>();
-        grupos.forEach((clave, valor) -> setGrupos.add(valor));
+        Set<Grupo> setGrupos = new HashSet<>(grupos.values());
         return setGrupos;
     }
 
@@ -132,12 +136,29 @@ public class Feisbu {
      * para cada grupo se asocia un conjunto de objetos usuario 
      * de de ese grupo de genero 'm' ordenado alfabéticamente por nombreCompleto
      */
-    //método usuariosMujerGrupos(){
-        //<Inserta tu código aquí>
-    //}
+    public Map<Grupo, Set<Usuario>> usuariosMujerGrupos(){
+        Map<Grupo, Set<Usuario>> mapaGrupos = null;
+        for (Grupo grupo : getGrupos()) {
+            if(mapaGrupos == null)
+                mapaGrupos = new TreeMap<>();
+            mapaGrupos.put(grupo, new TreeSet<Usuario>());
+        }
+        for (Usuario usuario : getUsuarios()) {
+            if(usuario.getGenero() == 'm')
+                for (Grupo grupo : usuario.getGrupos()) {
+                    mapaGrupos.get(grupo).add(usuario);
+                }
+        }
+        return mapaGrupos;
+    }        
     
     public static void main(String[] args) {
         Feisbu fb = new Feisbu();
+        Usuario nico = fb.buscaUsuario("nico");
+        Usuario antonia = fb.buscaUsuario("antonia");
+        Usuario ana = fb.buscaUsuario("ana");
+        Usuario amalia = fb.buscaUsuario("amalia");
+        Usuario manuela = fb.buscaUsuario("manuela");
 
     }
 }

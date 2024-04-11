@@ -62,6 +62,7 @@ public abstract class Animal implements Comparable<Animal> {
             return false;
         return true;
     }
+//no sé si funciona esto correctamente
     @Override
     public int compareTo(Animal otroAnimal) {
         // Comparación por especie

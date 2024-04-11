@@ -5,9 +5,9 @@ public enum VacunaGato implements Vacuna {
     FCORONAVIRUS("Coronavirus", false, 0),
     PERITONITIS("Peritonitis Infecciosa", false, 12);
     
-    private final String nombre;
-    private final boolean esencial;
-    private final int revacunacion;
+    private String nombre;
+    private boolean esencial;
+    private int revacunacion;
 
     VacunaGato(String nombre, boolean esencial, int revacunacion) {
         this.nombre = nombre;

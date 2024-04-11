@@ -61,6 +61,7 @@ public class Refugio {
         Collections.sort(gatosAntiguos);
         return gatosAntiguos.get(0);
     }
+//falta probar este metodo
     public void administrarVacuna(Vacuna vacuna, Animal a){
         if(a instanceof Gato){
             vacuna = (VacunaGato) vacuna;
@@ -69,5 +70,6 @@ public class Refugio {
             vacuna = (VacunaPerro) vacuna;
             a.addVacuna(vacuna);
         }
+//me falta implementar los informes.
     }
 }

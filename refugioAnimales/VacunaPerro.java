@@ -5,9 +5,10 @@ public enum VacunaPerro implements Vacuna {
     ADENOVIRUS("Adenovirus canino tipo I y II", true, 36),
     CCORONAVIRUS("Coronavirus canino", false, 0),
     LEPTOSPIRA("Leptopirosis", false, 12);
-    private final String nombre;
-    private final boolean esencial;
-    private final int revacunacion;
+    
+    private String nombre;
+    private boolean esencial;
+    private int revacunacion;
 
     VacunaPerro(String nombre, boolean esencial, int revacunacion) {
         this.nombre = nombre;

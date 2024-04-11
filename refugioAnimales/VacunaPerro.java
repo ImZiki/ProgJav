@@ -1,3 +1,5 @@
+package ud09.refugioAnimales;
+
 public enum VacunaPerro implements Vacuna {
     MOQUILLO("Moquillo canino", true, 36),
     RABIA("Rabia", true, 12),
@@ -24,5 +26,9 @@ public enum VacunaPerro implements Vacuna {
     @Override
     public boolean esEsencial() {
         return esencial;
+    }
+
+    public int tiempoRevacunacion(){
+        return revacunacion;
     }
 }

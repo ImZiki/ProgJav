@@ -1,3 +1,5 @@
+package ud09.refugioAnimales;
+
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
@@ -5,12 +7,12 @@ import java.util.List;
 class Gato extends Animal{
     private String nombre;
     private LocalDateTime fechaAdopcion;
-    private List<VacunaGato> vacunas;
+    private List<Dosis> dosis;
     
     public Gato(String nombre, char sexo, LocalDateTime fechaEntrada, int identificador) {
         super(sexo, fechaEntrada, identificador);
         this.nombre = nombre;
-        this.vacunas = new LinkedList<VacunaGato>();
+        this.dosis = new LinkedList<>();
     }
 
     
@@ -49,11 +51,18 @@ class Gato extends Animal{
         return nombre();
     }
 
-    public void addVacuna(Vacuna vacuna) {
-        vacunas.add((VacunaGato) vacuna);
+    public void addDosis(Dosis a) {
+        dosis.add(a);
     }
 
-    public List<VacunaGato> getVacunas() {
-        return vacunas;
+    public List<Dosis> getDosis() {
+        return dosis;
+    }
+
+
+    @Override
+    protected void addVacuna(Vacuna vacuna) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'addVacuna'");
     }
 }

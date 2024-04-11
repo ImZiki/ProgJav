@@ -1,3 +1,5 @@
+package ud09.refugioAnimales;
+
 public enum VacunaGato implements Vacuna {
     HERPES("Herpes Felino Tipo 1", true, 36),
     CALICIVIRUS("Calicivirus", true, 36),
@@ -23,5 +25,9 @@ public enum VacunaGato implements Vacuna {
     @Override
     public boolean esEsencial() {
         return esencial;
+    }
+
+    public int tiempoRevacunacion(){
+        return revacunacion;
     }
 }

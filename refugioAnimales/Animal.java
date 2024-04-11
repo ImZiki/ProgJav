@@ -1,10 +1,13 @@
+package ud09.refugioAnimales;
+
 import java.time.LocalDateTime;
-import java.util.List;
+
 public abstract class Animal implements Comparable<Animal> {
     protected char sexo;
     protected LocalDateTime fechaEntrada;
     protected int identificador;
     protected LocalDateTime fechaAdopcion;
+    protected String nombre;
 
 
     public Animal(char sexo, LocalDateTime fechaEntrada, int identificador) {
@@ -20,6 +23,31 @@ public abstract class Animal implements Comparable<Animal> {
     public LocalDateTime getFechaAdopcion() {
         return fechaAdopcion;
     }
+
+    public char getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
+    }
+
+    public LocalDateTime getFechaEntrada() {
+        return fechaEntrada;
+    }
+
+    public void setFechaEntrada(LocalDateTime fechaEntrada) {
+        this.fechaEntrada = fechaEntrada;
+    }
+
+    public int getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(int identificador) {
+        this.identificador = identificador;
+    }
+    
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -27,24 +55,7 @@ public abstract class Animal implements Comparable<Animal> {
         result = prime * result + ((fechaEntrada == null) ? 0 : fechaEntrada.hashCode());
         return result;
     }
-    public char getSexo() {
-        return sexo;
-    }
-    public void setSexo(char sexo) {
-        this.sexo = sexo;
-    }
-    public LocalDateTime getFechaEntrada() {
-        return fechaEntrada;
-    }
-    public void setFechaEntrada(LocalDateTime fechaEntrada) {
-        this.fechaEntrada = fechaEntrada;
-    }
-    public int getIdentificador() {
-        return identificador;
-    }
-    public void setIdentificador(int identificador) {
-        this.identificador = identificador;
-    }
+   
     
     @Override
     public boolean equals(Object obj) {
@@ -66,7 +77,7 @@ public abstract class Animal implements Comparable<Animal> {
     @Override
     public int compareTo(Animal otroAnimal) {
         // Comparación por especie
-        if (this.getClass().equals(otroAnimal.getClass())) {
+        if (this.getClass().getName().equalsIgnoreCase(otroAnimal.getClass().getName())) {
             // Comparación por sexo
             if (this.getSexo() == otroAnimal.getSexo()) {
                 // Comparación por fecha de entrada
@@ -95,6 +106,7 @@ public abstract class Animal implements Comparable<Animal> {
             return 1;
         }
     }
+
     @Override
     public String toString() {
         return "Animal";
